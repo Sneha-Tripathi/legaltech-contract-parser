@@ -1,0 +1,276 @@
+/* ============================================================
+   DASHBOARD CSS — Premium Dark SaaS
+   ============================================================= */
+
+/* ── Dashboard Layout ── */
+.dashboard-page {
+  padding-top: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(124, 92, 252, 0.06), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(139, 109, 255, 0.04), transparent 50%),
+    var(--bg-primary);
+}
+
+/* ── Glass Stat Cards ── */
+.stat-card {
+  position: relative;
+  background: rgba(21, 29, 51, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.stat-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 16px 48px rgba(124, 92, 252, 0.15);
+}
+
+.stat-card:hover::before { opacity: 1; }
+
+.stat-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: transform 0.4s;
+}
+
+
+
+.stat-card-icon.purple { background: rgba(124, 92, 255, 0.15); color: #a78bfa; }
+.stat-card-icon.red { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.stat-card-icon.blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.stat-card-icon.orange { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+
+
+.stat-card h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.stat-card p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.stat-card .stat-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.stat-trend.up { background: var(--success-bg); color: var(--success); }
+.stat-trend.down { background: var(--danger-bg); color: var(--danger); }
+
+/* ── Chart Cards ── */
+.chart-card {
+  background: rgba(21, 29, 51, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s;
+}
+
+.chart-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 12px 40px rgba(124, 92, 252, 0.08);
+}
+
+.chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-card-header h5 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.chart-card-header .chart-badge {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--accent-light);
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+/* ── Activity Feed ── */
+.activity-card {
+  background: rgba(21, 29, 51, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activity-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-card-header h5 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.activity-card-header a {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.activity-card-header a:hover { color: var(--text-accent); }
+
+.activity-list { list-style: none; padding: 0; margin: 0; }
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.2s;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.activity-item:last-child { border-bottom: none; }
+.activity-item:hover { background: rgba(124, 92, 252, 0.04); }
+
+.activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.activity-icon.upload { background: var(--info-bg); color: var(--info); }
+.activity-icon.risk { background: var(--danger-bg); color: var(--danger); }
+.activity-icon.clause { background: var(--accent-light); color: var(--text-accent); }
+
+.activity-info { flex: 1; min-width: 0; }
+
+.activity-info .activity-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-info .activity-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 2px 0 0;
+}
+
+.activity-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Empty States ── */
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.empty-state i { font-size: 40px; color: var(--text-muted); margin-bottom: 12px; }
+.empty-state h5 { color: var(--text-secondary); font-weight: 600; font-size: 16px; }
+.empty-state p { color: var(--text-muted); font-size: 13px; }
+
+/* ── Skeleton Loading ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-card { height: 120px; border-radius: 24px; }
+.skeleton-chart { height: 200px; border-radius: 24px; }
+
+a.stat-card { color: inherit; }
+a.stat-card:hover { color: inherit; }
+
+@media (max-width: 768px) {
+  .stat-card h3 { font-size: 26px; }
+  .chart-card { padding: 16px; }
+}

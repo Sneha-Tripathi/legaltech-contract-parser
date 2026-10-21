@@ -1,0 +1,145 @@
+{% extends "base_public.html" %}
+{% load static %}
+
+{% block title %}FAQ — LegalTech{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/faq.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== FAQ HERO ===== -->
+<section class="faq-hero-section">
+  <div class="container">
+    <div class="faq-hero-card" data-aos="fade-up">
+      <div class="faq-hero-icon"><i class="bi bi-question-circle"></i></div>
+      <h1 class="faq-hero-title">Frequently Asked Questions</h1>
+      <p class="faq-hero-text">Everything you need to know about LegalTech Contract Parser.</p>
+      <div class="faq-search-wrapper">
+        <i class="bi bi-search faq-search-icon"></i>
+        <input type="text" class="faq-search-input" id="faqSearch" placeholder="Search questions...">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ACCORDION ===== -->
+<section class="faq-accordion-section">
+  <div class="container">
+    <div class="faq-accordion-card" data-aos="fade-up">
+      <div class="accordion" id="faqAccordion">
+        {% for faq in faqs %}
+        <div class="faq-item">
+          <div class="faq-question{% if not forloop.first %} collapsed{% endif %}" data-bs-toggle="collapse" data-bs-target="#faq{{ forloop.counter }}">
+            <span class="faq-q-text">{{ faq.question }}</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq{{ forloop.counter }}" class="collapse{% if forloop.first %} show{% endif %}" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">{{ faq.answer }}</div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="faq-item">
+          <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
+            <span class="faq-q-text">How does LegalTech work?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq1" class="collapse show" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Upload your legal contract in PDF format. Our AI extracts the text, detects legal clauses, identifies risks, and generates a comprehensive analysis report — all within seconds.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+            <span class="faq-q-text">Is my contract secure?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq2" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Absolutely. All uploaded contracts are stored securely and are only accessible to the authenticated user who uploaded them. Your data remains private and confidential.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+            <span class="faq-q-text">What file formats are supported?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq3" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Currently we support PDF format. We are working on adding support for DOCX, TXT and other popular document formats in future updates.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
+            <span class="faq-q-text">How is risk calculated?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq4" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Our AI analyzes each detected clause against a set of predefined risk indicators. Each clause is evaluated and assigned a risk level — High, Medium, or Low — based on the severity and nature of the legal language used.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
+            <span class="faq-q-text">Can I download reports?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq5" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Yes. Every analyzed contract can be downloaded as a professional PDF report. The report includes the contract summary, detected clauses, risk analysis, and key findings.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq6">
+            <span class="faq-q-text">How long does analysis take?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq6" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Most contracts are analyzed within seconds. The processing time depends on the size and complexity of the document, but typically completes in under 30 seconds.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq7">
+            <span class="faq-q-text">Can I upload multiple contracts?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq7" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Yes. You can upload and analyze as many contracts as you need. All your contracts are stored in your personal dashboard and can be accessed anytime.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq8">
+            <span class="faq-q-text">Is login required?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq8" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Yes. You need to create an account and log in to upload contracts and view analysis reports. This ensures your documents are stored securely and privately.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq9">
+            <span class="faq-q-text">Can I print reports?</span>
+            <i class="bi bi-chevron-down faq-chevron"></i>
+          </div>
+          <div id="faq9" class="collapse" data-bs-parent="#faqAccordion">
+            <div class="faq-answer">Absolutely. Each contract analysis page includes a print button that lets you print the complete report directly from your browser.</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const searchInput = document.getElementById("faqSearch");
+  if (searchInput) {
+    searchInput.addEventListener("keyup", function() {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll(".faq-item").forEach(function(item) {
+        const text = item.querySelector(".faq-q-text").innerText.toLowerCase();
+        item.style.display = text.includes(query) ? "" : "none";
+      });
+    });
+  }
+});
+</script>
+
+{% endblock %}

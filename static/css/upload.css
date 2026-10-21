@@ -1,0 +1,210 @@
+/* =====================================================
+   UPLOAD PAGE — Dark Glass Card Design
+   ===================================================== */
+
+.upload-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upload-card:hover {
+  box-shadow: 0 28px 64px rgba(0,0,0,0.3);
+}
+
+.upload-card-header {
+  text-align: center;
+}
+
+.upload-card-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-gradient);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 26px;
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+
+.upload-card-body {
+  color: var(--text-primary);
+}
+
+.upload-alert {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.upload-alert-error {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.upload-form-group {
+  margin-bottom: 20px;
+}
+
+.upload-form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.upload-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.upload-input {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #fff;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.upload-input::placeholder {
+  color: var(--text-muted);
+}
+
+.upload-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,92,252,0.12);
+  background: rgba(124,92,252,0.06);
+}
+
+.upload-file-wrapper {
+  position: relative;
+}
+
+.upload-file-input {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.upload-file-input::file-selector-button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  margin-right: 12px;
+}
+
+.upload-file-input::file-selector-button:hover {
+  background: var(--accent-hover);
+}
+
+.upload-hint {
+  display: block;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.upload-form-action {
+  padding-top: 4px;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 24px rgba(124,92,252,0.28);
+  letter-spacing: 0.3px;
+}
+
+.upload-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(124,92,252,0.4);
+}
+
+.upload-btn:active {
+  transform: translateY(0);
+}
+
+.upload-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.upload-loading {
+  text-align: center;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.upload-loading .spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--accent) !important;
+}
+
+.upload-loading h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 14px 0 6px;
+}
+
+.upload-loading p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .upload-page {
+    padding: 64px 16px 32px;
+  }
+  .upload-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,165 @@
+{% extends "base_public.html" %}
+{% load static %}
+
+{% block title %}Features — LegalTech{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/features.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== SECTION 1 — Hero ===== -->
+<section class="features-hero">
+  <div class="container">
+    <div class="features-hero-card" data-aos="fade-up">
+      <div class="features-hero-icon"><i class="bi bi-magic"></i></div>
+      <h1 class="features-hero-title">Powerful AI Features</h1>
+      <p class="features-hero-subtitle">Everything you need to analyze legal contracts with Artificial Intelligence in seconds.</p>
+      <p class="features-hero-desc">Upload contracts, detect clauses, identify legal risks, generate summaries and download professional reports.</p>
+      <div class="features-hero-buttons">
+        <a href="{% url 'upload' %}" class="features-btn features-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Start Contract Analysis
+        </a>
+        <a href="{% url 'upload' %}" class="features-btn features-btn-outline">
+          <i class="bi bi-upload"></i> Upload Contract
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2 — Feature Grid ===== -->
+<section class="features-grid-section">
+  <div class="container">
+    <div class="features-section-label" data-aos="fade-up">
+      <span class="features-badge">PLATFORM FEATURES</span>
+      <h2 class="features-section-title">Everything Built for Legal Teams</h2>
+      <p class="features-section-text">Powerful tools to transform how you review and analyze legal documents.</p>
+    </div>
+
+    <div class="features-grid">
+      {% for feature in feature_list %}
+      <div class="features-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|divisibleby:3 }}">
+        <div class="features-card-icon"><i class="bi {{ feature.icon }}"></i></div>
+        <h3 class="features-card-title">{{ feature.title }}</h3>
+        <p class="features-card-text">{{ feature.text }}</p>
+      </div>
+      {% empty %}
+      <div class="features-card" data-aos="fade-up">
+        <div class="features-card-icon"><i class="bi bi-file-earmark-pdf"></i></div>
+        <h3 class="features-card-title">PDF Upload</h3>
+        <p class="features-card-text">Secure PDF contract upload with drag-and-drop support.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="50">
+        <div class="features-card-icon"><i class="bi bi-cpu"></i></div>
+        <h3 class="features-card-title">AI Clause Detection</h3>
+        <p class="features-card-text">Automatically identify important legal clauses using AI.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="features-card-icon"><i class="bi bi-shield-exclamation"></i></div>
+        <h3 class="features-card-title">Risk Detection</h3>
+        <p class="features-card-text">Detect High, Medium and Low risks in legal contracts.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="features-card-icon"><i class="bi bi-file-text"></i></div>
+        <h3 class="features-card-title">AI Summary</h3>
+        <p class="features-card-text">Generate concise contract summaries automatically.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="features-card-icon"><i class="bi bi-tags"></i></div>
+        <h3 class="features-card-title">Keyword Extraction</h3>
+        <p class="features-card-text">Extract important legal keywords from any document.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="features-card-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <h3 class="features-card-title">Risk Score</h3>
+        <p class="features-card-text">Calculate overall contract risk score intelligently.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="features-card-icon"><i class="bi bi-download"></i></div>
+        <h3 class="features-card-title">PDF Report</h3>
+        <p class="features-card-text">Download professional PDF reports for each contract.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="features-card-icon"><i class="bi bi-printer"></i></div>
+        <h3 class="features-card-title">Print Report</h3>
+        <p class="features-card-text">Print complete contract analysis directly from browser.</p>
+      </div>
+      <div class="features-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="features-card-icon"><i class="bi bi-clock-history"></i></div>
+        <h3 class="features-card-title">Contract History</h3>
+        <p class="features-card-text">View and manage all previously uploaded contracts.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3 — Workflow ===== -->
+<section class="features-workflow-section">
+  <div class="container">
+    <div class="features-section-label" data-aos="fade-up">
+      <span class="features-badge">HOW IT WORKS</span>
+      <h2 class="features-section-title">Simple 5-Step Workflow</h2>
+      <p class="features-section-text">From upload to report in just a few clicks.</p>
+    </div>
+
+    <div class="features-timeline" data-aos="fade-up">
+      <div class="features-timeline-step">
+        <div class="features-timeline-number">1</div>
+        <div class="features-timeline-content">
+          <h4>Upload Contract</h4>
+          <p>Upload your PDF legal contract securely.</p>
+        </div>
+      </div>
+      <div class="features-timeline-arrow"><i class="bi bi-chevron-down"></i></div>
+      <div class="features-timeline-step">
+        <div class="features-timeline-number">2</div>
+        <div class="features-timeline-content">
+          <h4>Extract Text</h4>
+          <p>AI extracts complete document text automatically.</p>
+        </div>
+      </div>
+      <div class="features-timeline-arrow"><i class="bi bi-chevron-down"></i></div>
+      <div class="features-timeline-step">
+        <div class="features-timeline-number">3</div>
+        <div class="features-timeline-content">
+          <h4>Analyze Clauses</h4>
+          <p>Detect legal clauses using intelligent analysis.</p>
+        </div>
+      </div>
+      <div class="features-timeline-arrow"><i class="bi bi-chevron-down"></i></div>
+      <div class="features-timeline-step">
+        <div class="features-timeline-number">4</div>
+        <div class="features-timeline-content">
+          <h4>Detect Risks</h4>
+          <p>Identify high, medium and low risk factors.</p>
+        </div>
+      </div>
+      <div class="features-timeline-arrow"><i class="bi bi-chevron-down"></i></div>
+      <div class="features-timeline-step">
+        <div class="features-timeline-number">5</div>
+        <div class="features-timeline-content">
+          <h4>Generate Report</h4>
+          <p>Download a professional PDF analysis report.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4 — CTA ===== -->
+<section class="features-cta-section">
+  <div class="container">
+    <div class="features-cta-card" data-aos="zoom-in">
+      <h2 class="features-cta-title">Ready to Analyze Your Contract?</h2>
+      <p class="features-cta-text">Upload your legal agreement and receive AI-powered insights in seconds.</p>
+      <a href="{% url 'upload' %}" class="features-btn features-btn-cta">
+        <i class="bi bi-file-earmark-pdf"></i> Analyze Contract
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

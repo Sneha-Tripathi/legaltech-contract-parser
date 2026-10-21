@@ -1,0 +1,444 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | LegalTech{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block main_class %}dashboard-page{% endblock %}
+
+{% block content %}
+
+<!-- ========================================= -->
+<!-- DASHBOARD LAYOUT -->
+<!-- ========================================= -->
+
+<div class="dashboard-layout">
+
+    <!-- Overlay -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ========================================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <a href="{% url 'home' %}"
+               class="sidebar-brand">
+
+                <div class="sidebar-logo-icon">
+                    <i class="bi bi-bank2"></i>
+                </div>
+
+                <span class="sidebar-logo-text">
+                    Legal<span>Tech</span>
+                </span>
+
+            </a>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <span class="sidebar-section-label">
+                MAIN MENU
+            </span>
+
+            <a href="{% url 'dashboard' %}"
+               class="sidebar-item{% if request.path == '/dashboard/' %} active{% endif %}">
+
+                <i class="bi bi-speedometer2"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+            <a href="{% url 'contracts_list' %}"
+               class="sidebar-item{% if '/contracts/' in request.path and '/upload/' not in request.path %} active{% endif %}">
+
+                <i class="bi bi-file-earmark-text"></i>
+
+                <span>Contracts</span>
+
+            </a>
+
+            <a href="{% url 'upload' %}"
+               class="sidebar-item{% if '/upload/' in request.path %} active{% endif %}">
+
+                <i class="bi bi-upload"></i>
+
+                <span>Upload</span>
+
+            </a>
+
+            <a href="{% url 'risk_explorer' %}"
+               class="sidebar-item{% if '/risk-explorer/' in request.path %} active{% endif %}">
+
+                <i class="bi bi-shield-exclamation"></i>
+
+                <span>Risk Analysis</span>
+
+            </a>
+
+            <a href="{% url 'clause_explorer' %}"
+               class="sidebar-item{% if '/clause-explorer/' in request.path %} active{% endif %}">
+
+                <i class="bi bi-list-check"></i>
+
+                <span>Clauses</span>
+
+            </a>
+
+            <a href="{% url 'contracts_list' %}"
+               class="sidebar-item">
+
+                <i class="bi bi-file-earmark-bar-graph"></i>
+
+                <span>Reports</span>
+
+            </a>
+
+            <span class="sidebar-section-label mt-4">
+
+                ACCOUNT
+
+            </span>
+
+            <a href="{% url 'profile' %}"
+               class="sidebar-item{% if '/profile/' in request.path %} active{% endif %}">
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>Profile</span>
+
+            </a>
+
+            <a href="{% url 'settings' %}"
+               class="sidebar-item{% if '/settings/' in request.path %} active{% endif %}">
+
+                <i class="bi bi-gear"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <a href="{% url 'logout' %}"
+               class="sidebar-item text-danger">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ========================================= -->
+    <!-- MAIN AREA -->
+    <!-- ========================================= -->
+
+    <div class="dashboard-main">
+
+        <!-- Top Header: Search, Notifications, Profile ONLY -->
+
+        <header class="content-header">
+
+            <div class="content-header-left">
+
+                <button class="sidebar-toggle"
+                        id="sidebarToggle">
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+                <a href="{% url 'home' %}"
+                   class="back-home-btn"
+                   title="Back to Home">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    <span class="back-home-text">Back to Home</span>
+
+                </a>
+
+                <div class="search-bar">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Search contracts...">
+
+                </div>
+
+            </div>
+
+            <div class="content-header-right">
+
+                <button class="icon-btn"
+                        id="notifTrigger">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-badge">
+                        3
+                    </span>
+
+                </button>
+
+                <div class="profile-trigger"
+                     id="profileTrigger">
+
+                    <div class="profile-avatar">
+
+                        {{ user.username|first|upper }}
+
+                    </div>
+
+                    <span class="profile-name">
+
+                        {{ user.username }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- ========================================= -->
+        <!-- PAGE CONTAINER -->
+        <!-- ========================================= -->
+
+        <main class="page-container container-fluid px-4 px-lg-5 py-4">
+
+            <!-- Notification Panel -->
+
+            <div class="notification-panel" id="notificationPanel">
+
+                <div class="notification-panel-header">
+                    <h5>Notifications</h5>
+                    <a href="#">Mark all read</a>
+                </div>
+
+                <div class="notification-list">
+
+                    <div class="notification-item unread">
+
+                        <div class="notification-item-icon upload">
+                            <i class="bi bi-file-earmark-pdf"></i>
+                        </div>
+
+                        <div class="notification-item-content">
+                            <p class="notification-item-title">
+                                Contract analyzed
+                            </p>
+
+                            <p class="notification-item-text">
+                                New analysis completed successfully.
+                            </p>
+                        </div>
+
+                        <span class="notification-item-time">
+                            2m ago
+                        </span>
+
+                    </div>
+
+                    <div class="notification-item unread">
+
+                        <div class="notification-item-icon risk">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+
+                        <div class="notification-item-content">
+
+                            <p class="notification-item-title">
+                                High Risk Detected
+                            </p>
+
+                            <p class="notification-item-text">
+                                Review recommended immediately.
+                            </p>
+
+                        </div>
+
+                        <span class="notification-item-time">
+                            1h ago
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Profile Dropdown -->
+
+            <div class="dropdown-menu-custom"
+                 id="profileDropdown">
+
+                <a href="{% url 'profile' %}"
+                   class="dropdown-item">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    Profile
+
+                </a>
+
+                <a href="{% url 'settings' %}"
+                   class="dropdown-item">
+
+                    <i class="bi bi-gear"></i>
+
+                    Settings
+
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="{% url 'logout' %}"
+                   class="dropdown-item danger">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
+            <!-- =============================== -->
+            <!-- PAGE HEADER -->
+            <!-- =============================== -->
+
+            <section class="page-header">
+                {% block page_header %}
+                <div>
+                    <h1 class="page-title">{% block page_title_text %}Dashboard{% endblock %}</h1>
+                    <p class="page-subtitle">{% block page_subtitle_text %}{% endblock %}</p>
+                </div>
+                <div class="page-actions">{% block page_actions %}{% endblock %}</div>
+                {% endblock %}
+            </section>
+
+            <!-- =============================== -->
+            <!-- PAGE CONTENT -->
+            <!-- =============================== -->
+
+            <section class="page-content">
+
+                {% block dashboard_content %}{% endblock %}
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+{{ block.super }}
+
+<script src="{% static 'js/sidebar.js' %}"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    const toggle = document.getElementById("sidebarToggle");
+
+    if (toggle) {
+
+        toggle.addEventListener("click", function () {
+
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+
+        });
+
+    }
+
+    if (overlay) {
+
+        overlay.addEventListener("click", function () {
+
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+
+        });
+
+    }
+
+    const profileTrigger = document.getElementById("profileTrigger");
+    const profileDropdown = document.getElementById("profileDropdown");
+
+    if (profileTrigger && profileDropdown) {
+
+        profileTrigger.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            profileDropdown.classList.toggle("show");
+
+        });
+
+        document.addEventListener("click", function () {
+
+            profileDropdown.classList.remove("show");
+
+        });
+
+    }
+
+    const notifTrigger = document.getElementById("notifTrigger");
+    const notificationPanel = document.getElementById("notificationPanel");
+
+    if (notifTrigger && notificationPanel) {
+
+        notifTrigger.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            notificationPanel.classList.toggle("show");
+
+        });
+
+        document.addEventListener("click", function () {
+
+            notificationPanel.classList.remove("show");
+
+        });
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{% block page_title %}
+LegalTech Contract Parser
+{% endblock %}
+{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block navbar %}
+<!-- ========================================= -->
+<!-- PUBLIC NAVBAR -->
+<!-- ========================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+
+    <div class="container">
+
+        <!-- Logo -->
+
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <i class="bi bi-bank2"></i>
+            <span>Legal<span class="text-purple">Tech</span></span>
+        </a>
+
+        <!-- Mobile Toggle -->
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#publicNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <!-- Navbar -->
+
+        <div class="collapse navbar-collapse"
+             id="publicNavbar">
+
+            <!-- Left Menu -->
+
+            <ul class="navbar-nav ms-5 gap-3">
+
+                {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link{% if request.path == '/' %} active{% endif %}"
+                       href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/dashboard/' in request.path %} active{% endif %}"
+                       href="{% url 'dashboard' %}">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/contracts/' in request.path %} active{% endif %}"
+                       href="{% url 'contracts_list' %}">
+                        Contracts
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/upload/' in request.path %} active{% endif %}"
+                       href="{% url 'upload' %}">
+                        Upload
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/features/' in request.path %} active{% endif %}"
+                       href="{% url 'features' %}">
+                        Features
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/risk-explorer/' in request.path %} active{% endif %}"
+                       href="{% url 'risk_explorer' %}">
+                        Risk Explorer
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/clause-explorer/' in request.path %} active{% endif %}"
+                       href="{% url 'clause_explorer' %}">
+                        Clause Explorer
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/faq/' in request.path %} active{% endif %}"
+                       href="{% url 'faq' %}">
+                        FAQ
+                    </a>
+                </li>
+
+                {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link{% if request.path == '/' %} active{% endif %}"
+                       href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/features/' in request.path %} active{% endif %}"
+                       href="{% url 'features' %}">
+                        Features
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{% if '/faq/' in request.path %} active{% endif %}"
+                       href="{% url 'faq' %}">
+                        FAQ
+                    </a>
+                </li>
+
+                {% endif %}
+
+            </ul>
+
+            <!-- Right Side -->
+
+            <div class="ms-auto d-flex align-items-center gap-3">
+
+                {% if user.is_authenticated %}
+
+                <div class="d-flex align-items-center gap-2">
+
+                    <div class="d-flex align-items-center gap-2"
+                         style="padding:4px 12px 4px 4px;
+                                border-radius:40px;
+                                border:1px solid rgba(255,255,255,.08);">
+
+                        <div style="
+                            width:30px;
+                            height:30px;
+                            border-radius:8px;
+                            background:var(--accent-gradient);
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            color:#fff;
+                            font-weight:700;
+                            font-size:13px;">
+
+                            {{ user.username|first|upper }}
+
+                        </div>
+
+                        <span style="
+                            color:var(--text-primary);
+                            font-size:13px;
+                            font-weight:600;">
+
+                            {{ user.username }}
+
+                        </span>
+
+                    </div>
+
+                    <a href="{% url 'logout' %}"
+                       class="btn btn-ghost">
+
+                        <i class="bi bi-box-arrow-right me-1"></i>
+
+                        Logout
+
+                    </a>
+
+                </div>
+
+                {% else %}
+
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-light">
+
+                    <i class="bi bi-box-arrow-in-right me-1"></i>
+
+                    Login
+
+                </a>
+
+                <a href="{% url 'register' %}"
+                   class="btn signup-btn">
+
+                    <i class="bi bi-person-plus me-1"></i>
+
+                    Sign Up
+
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+{% endblock %}
+
+{% block main_class %}
+pt-navbar
+{% endblock %}
+{% block extra_js %}
+{{ block.super }}
+{% endblock %}

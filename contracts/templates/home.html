@@ -1,0 +1,1032 @@
+{% extends "base_public.html" %}
+{% load static %}
+
+{% block title %}Home | LegalTech Contract Parser{% endblock %}
+
+{% block content %}
+
+<!-- ===================================== -->
+<!-- HERO SECTION -->
+<!-- ===================================== -->
+
+<section class="hero-section">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<!-- LEFT -->
+
+<div class="col-lg-6" data-aos="fade-right">
+
+<span class="badge bg-primary hero-badge">
+
+⚖️ AI Powered Legal Platform
+
+</span>
+
+<h1 class="hero-title">
+
+Understand Contracts
+
+<br>
+
+<span class="text-purple">
+
+in Seconds
+
+</span>
+
+</h1>
+
+<p class="hero-text">
+
+Upload legal contracts, automatically extract clauses,
+detect risks, identify obligations, and generate
+professional PDF reports using Artificial Intelligence.
+
+</p>
+
+<div class="mt-3 hero-buttons">
+
+<a href="{% url 'upload' %}" class="btn btn-primary hero-btn me-3">
+
+<i class="bi bi-upload"></i>
+
+Upload Contract
+
+</a>
+
+<a href="{% url 'dashboard' %}" class="btn btn-outline-light hero-btn">
+
+<i class="bi bi-speedometer2"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+<div class="hero-stats mt-3">
+
+<div>
+
+<h3>
+
+500+
+
+</h3>
+
+<p>
+
+Contracts Parsed
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+98%
+
+</h3>
+
+<p>
+
+Accuracy
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+24x7
+
+</h3>
+
+<p>
+
+Availability
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="col-lg-6">
+
+<div class="dashboard-preview">
+
+<img
+src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=900"
+class="dashboard-img img-fluid"
+alt="Dashboard">
+
+<div class="floating-card card-one">
+
+<i class="bi bi-shield-check text-success"></i>
+
+Risk Analysis
+
+</div>
+
+<div class="floating-card card-two">
+
+<i class="bi bi-file-earmark-text text-warning"></i>
+
+AI Parsing
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- FEATURES -->
+<!-- ===================================== -->
+
+<section class="features-section" id="features">
+
+<div class="container">
+
+<div class="text-center mb-4">
+
+<h2 class="section-title">
+
+Platform Features
+
+</h2>
+
+<p class="section-text">
+
+Everything required to automate legal contract review.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<a href="{% url 'upload' %}" class="feature-card">
+
+<div class="icon-box">
+
+<i class="bi bi-upload"></i>
+
+</div>
+
+<h4>
+
+Upload Contract
+
+</h4>
+
+<p>
+
+Upload PDF contracts securely for AI analysis.
+
+</p>
+
+</a>
+
+</div>
+
+<div class="col-lg-4">
+
+<a href="{% url 'dashboard' %}" class="feature-card">
+
+<div class="icon-box">
+
+<i class="bi bi-cpu"></i>
+
+</div>
+
+<h4>
+
+AI Analysis
+
+</h4>
+
+<p>
+
+Automatically extract clauses and identify legal risks.
+
+</p>
+
+</a>
+
+</div>
+
+<div class="col-lg-4">
+
+<a href="{% url 'contracts_list' %}" class="feature-card">
+
+<div class="icon-box">
+
+<i class="bi bi-file-earmark-pdf"></i>
+
+</div>
+
+<h4>
+
+Generate Reports
+
+</h4>
+
+<p>
+
+Download professional PDF reports instantly.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===================================== -->
+<!-- WHY CHOOSE US -->
+<!-- ===================================== -->
+
+<section class="why-section">
+
+<div class="container">
+
+<div class="text-center mb-4">
+
+<span class="section-subtitle">
+
+WHY CHOOSE US
+
+</span>
+
+<h2 class="section-title">
+
+Smart Legal Document Analysis
+
+</h2>
+
+<p class="section-text">
+
+Our AI-powered engine simplifies contract review by detecting clauses,
+highlighting legal risks and generating professional reports within seconds.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3">
+
+<div class="info-card" data-aos="fade-up">
+
+<div class="card-icon">
+
+<i class="bi bi-lightning-charge-fill"></i>
+
+</div>
+
+<h4>
+
+Fast Analysis
+
+</h4>
+
+<p>
+
+Analyze lengthy legal documents in just a few seconds.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="info-card" data-aos="fade-up" data-aos-delay="100">
+
+<div class="card-icon">
+
+<i class="bi bi-shield-lock-fill"></i>
+
+</div>
+
+<h4>
+
+Secure
+
+</h4>
+
+<p>
+
+All uploaded contracts remain protected and confidential.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="info-card" data-aos="fade-up" data-aos-delay="200">
+
+<div class="card-icon">
+
+<i class="bi bi-cpu-fill"></i>
+
+</div>
+
+<h4>
+
+AI Powered
+
+</h4>
+
+<p>
+
+Automatic clause extraction and intelligent risk identification.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="info-card" data-aos="fade-up" data-aos-delay="300">
+
+<div class="card-icon">
+
+<i class="bi bi-file-earmark-pdf-fill"></i>
+
+</div>
+
+<h4>
+
+PDF Reports
+
+</h4>
+
+<p>
+
+Generate professional reports ready for legal review.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- COUNTER -->
+<!-- ===================================== -->
+
+<section class="counter-section">
+
+<div class="container">
+
+<div class="row text-center g-4">
+
+<div class="col-md-3">
+
+<div class="counter-box">
+
+<h2 class="counter">
+
+500+
+
+</h2>
+
+<p>
+
+Contracts Parsed
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="counter-box">
+
+<h2 class="counter">
+
+1200+
+
+</h2>
+
+<p>
+
+Clauses Extracted
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="counter-box">
+
+<h2 class="counter">
+
+98%
+
+</h2>
+
+<p>
+
+Detection Accuracy
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="counter-box">
+
+<h2 class="counter">
+
+24/7
+
+</h2>
+
+<p>
+
+Platform Availability
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- WORKFLOW -->
+<!-- ===================================== -->
+
+<section class="workflow-section">
+
+<div class="container">
+
+<div class="text-center mb-4">
+
+<h2 class="section-title">
+
+How It Works
+
+</h2>
+
+<p class="section-text">
+
+Upload your document and receive a complete AI-generated legal analysis.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3">
+
+<div class="step-card">
+
+<div class="step-number">
+
+1
+
+</div>
+
+<h4>
+
+Upload
+
+</h4>
+
+<p>
+
+Upload your legal contract in PDF format.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="step-card">
+
+<div class="step-number">
+
+2
+
+</div>
+
+<h4>
+
+Extract Text
+
+</h4>
+
+<p>
+
+AI extracts complete document content automatically.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="step-card">
+
+<div class="step-number">
+
+3
+
+</div>
+
+<h4>
+
+Detect Risks
+
+</h4>
+
+<p>
+
+Clauses and legal risks are identified intelligently.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="step-card">
+
+<div class="step-number">
+
+4
+
+</div>
+
+<h4>
+
+Download Report
+
+</h4>
+
+<p>
+
+Generate and download a professional PDF report.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- SERVICES -->
+<!-- ===================================== -->
+
+<section class="services-section">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h2>
+
+AI Powered Legal Assistance
+
+</h2>
+
+<p>
+
+LegalTech automates contract parsing using artificial intelligence,
+allowing lawyers, businesses and organizations to review contracts
+quickly while minimizing legal risks.
+
+</p>
+
+<ul class="service-list">
+
+<li>
+
+<i class="bi bi-check-circle-fill"></i>
+
+Automatic Clause Detection
+
+</li>
+
+<li>
+
+<i class="bi bi-check-circle-fill"></i>
+
+Risk Identification
+
+</li>
+
+<li>
+
+<i class="bi bi-check-circle-fill"></i>
+
+Professional PDF Reports
+
+</li>
+
+<li>
+
+<i class="bi bi-check-circle-fill"></i>
+
+Dashboard Analytics
+
+</li>
+
+<li>
+
+<i class="bi bi-check-circle-fill"></i>
+
+Secure User Authentication
+
+</li>
+
+</ul>
+
+<a href="{% url 'upload' %}" class="btn btn-primary mt-3">
+
+Start Now
+
+</a>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img
+src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900"
+class="img-fluid rounded-4 shadow-lg"
+alt="Legal AI">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===================================== -->
+<!-- TESTIMONIALS -->
+<!-- ===================================== -->
+
+<section class="testimonials-section">
+
+<div class="container">
+
+<div class="text-center mb-4">
+
+<span class="section-subtitle">
+
+TESTIMONIALS
+
+</span>
+
+<h2 class="section-title">
+
+What Our Users Say
+
+</h2>
+
+<p class="section-text">
+
+Trusted by legal professionals, startups and enterprises.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="testimonial-card">
+
+<div class="stars">
+
+⭐⭐⭐⭐⭐
+
+</div>
+
+<p>
+
+LegalTech saved hours of manual contract review. The AI accurately detected clauses and highlighted risks.
+
+</p>
+
+<h5>
+
+Rahul Sharma
+
+</h5>
+
+<small>
+
+Corporate Lawyer
+
+</small>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="testimonial-card">
+
+<div class="stars">
+
+⭐⭐⭐⭐⭐
+
+</div>
+
+<p>
+
+Professional PDF reports and dashboard analytics made our legal workflow much faster.
+
+</p>
+
+<h5>
+
+Priya Verma
+
+</h5>
+
+<small>
+
+Legal Consultant
+
+</small>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="testimonial-card">
+
+<div class="stars">
+
+⭐⭐⭐⭐⭐
+
+</div>
+
+<p>
+
+Amazing UI, accurate AI analysis and a very smooth user experience.
+
+</p>
+
+<h5>
+
+Ankit Gupta
+
+</h5>
+
+<small>
+
+Startup Founder
+
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- FAQ -->
+<!-- ===================================== -->
+
+<section class="faq-section" id="faq">
+
+<div class="container">
+
+<div class="text-center mb-4">
+
+<h2 class="section-title">
+
+Frequently Asked Questions
+
+</h2>
+
+<p class="section-text">
+
+Everything you need to know about LegalTech.
+
+</p>
+
+</div>
+
+<div class="accordion"
+id="faqAccordion">
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button
+class="accordion-button"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq1">
+
+How does AI detect legal clauses?
+
+</button>
+
+</h2>
+
+<div
+id="faq1"
+class="accordion-collapse collapse show"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Our AI extracts text from PDF contracts and analyzes it using predefined legal clause detection algorithms.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button
+class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq2">
+
+Can I download reports?
+
+</button>
+
+</h2>
+
+<div
+id="faq2"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Yes. Every analyzed contract can be exported as a professional PDF report.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button
+class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq3">
+
+Is my uploaded contract secure?
+
+</button>
+
+</h2>
+
+<div
+id="faq3"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Absolutely. Uploaded files remain private and are accessible only to authenticated users.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- CALL TO ACTION -->
+<!-- ===================================== -->
+
+<section class="cta-section">
+
+<div class="container text-center">
+
+<h2>
+
+Ready to Analyze Your Contracts?
+
+</h2>
+
+<p>
+
+Start using Artificial Intelligence to detect legal clauses,
+identify risks and generate professional reports.
+
+</p>
+
+<a
+href="{% url 'upload' %}"
+class="btn btn-light btn-lg">
+
+<i class="bi bi-upload"></i>
+
+Upload Your First Contract
+
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

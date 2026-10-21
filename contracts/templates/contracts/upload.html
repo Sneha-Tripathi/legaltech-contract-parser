@@ -1,0 +1,69 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/upload.css' %}">
+{% endblock %}
+
+{% block page_title_text %}Upload Contract{% endblock %}
+{% block page_subtitle_text %}Upload your legal contract for AI-based clause and risk analysis{% endblock %}
+
+{% block dashboard_content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-10 col-lg-9 col-xl-8">
+    <div class="upload-card">
+
+          <div class="upload-card-body">
+
+        {% if error %}
+        <div class="upload-alert upload-alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data" id="uploadForm">
+          {% csrf_token %}
+
+          <div class="upload-form-group">
+            <label class="upload-label" for="titleInput">Contract Title</label>
+            <input type="text" class="upload-input" id="titleInput" name="title" placeholder="Enter contract title" required>
+          </div>
+
+          <div class="upload-form-group">
+            <label class="upload-label" for="fileInput">Upload PDF</label>
+            <div class="upload-file-wrapper">
+              <input class="upload-input upload-file-input" type="file" id="fileInput" name="file" accept=".pdf" required>
+              <span class="upload-hint">Only PDF files are supported.</span>
+            </div>
+          </div>
+
+          <div class="upload-form-group upload-form-action">
+            <button type="submit" class="upload-btn" id="uploadBtn">
+              <i class="bi bi-file-earmark-pdf me-2"></i>Analyze Contract
+            </button>
+          </div>
+
+        </form>
+
+        <div id="loading" class="upload-loading" style="display:none;">
+          <div class="spinner-border text-primary" role="status"></div>
+          <h5>Analyzing Contract...</h5>
+          <p>Please wait while AI processes your document.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script>
+document.getElementById("uploadForm").addEventListener("submit", function(){
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("uploadBtn").disabled = true;
+});
+</script>
+{% endblock %}

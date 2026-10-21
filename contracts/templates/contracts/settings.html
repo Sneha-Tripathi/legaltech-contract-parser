@@ -1,0 +1,228 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+
+{% block title %}Settings — LegalTech{% endblock %}
+
+{% block page_title_text %}Settings{% endblock %}
+{% block page_subtitle_text %}Manage your account, security, and preferences{% endblock %}
+
+{% block dashboard_content %}
+
+<div class="row g-4">
+  <!-- Settings Navigation -->
+  <div class="col-xl-3 col-lg-4">
+    <div class="card" style="background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border-color);border-radius:var(--radius-2xl);overflow:hidden;height:100%;width:100%;">
+      <div class="list-group list-group-flush" style="background:transparent;">
+        <a href="#profile-settings" class="list-group-item list-group-item-action active" style="background:var(--bg-sidebar-active);color:var(--accent);border:none;padding:14px 20px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;" data-bs-toggle="list">
+          <i class="bi bi-person-circle"></i> Profile Settings
+        </a>
+        <a href="#theme-settings" class="list-group-item list-group-item-action" style="background:transparent;color:var(--text-secondary);border:none;border-bottom:1px solid var(--border-color);padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;" data-bs-toggle="list">
+          <i class="bi bi-palette"></i> Theme Settings
+        </a>
+        <a href="#notification-settings" class="list-group-item list-group-item-action" style="background:transparent;color:var(--text-secondary);border:none;border-bottom:1px solid var(--border-color);padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;" data-bs-toggle="list">
+          <i class="bi bi-bell"></i> Notifications
+        </a>
+        <a href="#account-settings" class="list-group-item list-group-item-action" style="background:transparent;color:var(--text-secondary);border:none;border-bottom:1px solid var(--border-color);padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;" data-bs-toggle="list">
+          <i class="bi bi-shield-lock"></i> Account Settings
+        </a>
+        <a href="#security" class="list-group-item list-group-item-action" style="background:transparent;color:var(--text-secondary);border:none;border-bottom:1px solid var(--border-color);padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;" data-bs-toggle="list">
+          <i class="bi bi-key"></i> Security
+        </a>
+        <a href="#danger-zone" class="list-group-item list-group-item-action" style="background:transparent;color:var(--danger);border:none;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;" data-bs-toggle="list">
+          <i class="bi bi-exclamation-triangle"></i> Danger Zone
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Content -->
+  <div class="col-xl-9 col-lg-8">
+    <div class="tab-content">
+
+      <!-- ===== Profile Settings ===== -->
+      <div class="tab-pane fade show active" id="profile-settings">
+        <div class="card" style="background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border-color);border-radius:var(--radius-2xl);padding:32px;height:100%;width:100%;">
+          <h4 style="font-weight:700;margin-bottom:24px;"><i class="bi bi-person-circle me-2" style="color:var(--accent);"></i>Profile Settings</h4>
+          <div class="d-flex align-items-center gap-4 mb-4">
+            <div style="width:72px;height:72px;border-radius:var(--radius-xl);background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:700;flex-shrink:0;">{{ user.username|first|upper }}</div>
+            <div>
+              <h5 style="margin:0;font-weight:600;">{{ user.username }}</h5>
+              <p style="color:var(--text-secondary);margin:2px 0 0;">{{ user.email|default:"No email set" }}</p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;display:block;">Username</label>
+              <input type="text" class="form-control" value="{{ user.username }}" style="background:rgba(255,255,255,0.04);border:1px solid var(--border-color);color:var(--text-primary);border-radius:var(--radius-lg);padding:12px 16px;font-size:14px;">
+            </div>
+            <div class="col-md-6">
+              <label style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;display:block;">Email</label>
+              <input type="email" class="form-control" value="{{ user.email|default:'' }}" placeholder="Enter your email" style="background:rgba(255,255,255,0.04);border:1px solid var(--border-color);color:var(--text-primary);border-radius:var(--radius-lg);padding:12px 16px;font-size:14px;">
+            </div>
+            <div class="col-md-6">
+              <label style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;display:block;">First Name</label>
+              <input type="text" class="form-control" value="{{ user.first_name|default:'' }}" placeholder="First name" style="background:rgba(255,255,255,0.04);border:1px solid var(--border-color);color:var(--text-primary);border-radius:var(--radius-lg);padding:12px 16px;font-size:14px;">
+            </div>
+            <div class="col-md-6">
+              <label style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;display:block;">Last Name</label>
+              <input type="text" class="form-control" value="{{ user.last_name|default:'' }}" placeholder="Last name" style="background:rgba(255,255,255,0.04);border:1px solid var(--border-color);color:var(--text-primary);border-radius:var(--radius-lg);padding:12px 16px;font-size:14px;">
+            </div>
+          </div>
+          <button class="btn btn-accent sm mt-4"><i class="bi bi-check2 me-1"></i>Save Changes</button>
+        </div>
+      </div>
+
+      <!-- ===== Theme Settings ===== -->
+      <div class="tab-pane fade" id="theme-settings">
+        <div class="card" style="background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border-color);border-radius:var(--radius-2xl);padding:32px;height:100%;width:100%;">
+          <h4 style="font-weight:700;margin-bottom:24px;"><i class="bi bi-palette me-2" style="color:var(--accent);"></i>Theme Settings</h4>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="theme-option" style="padding:20px;border-radius:var(--radius-xl);border:2px solid var(--accent);background:var(--bg-primary);cursor:pointer;text-align:center;">
+                <i class="bi bi-moon-stars" style="font-size:32px;color:var(--accent);"></i>
+                <h6 style="margin-top:12px;font-weight:600;">Dark Mode</h6>
+                <p style="font-size:12px;color:var(--text-secondary);margin:4px 0 0;">Current theme</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="theme-option" style="padding:20px;border-radius:var(--radius-xl);border:2px solid var(--border-color);background:var(--bg-card);cursor:pointer;text-align:center;opacity:0.5;">
+                <i class="bi bi-sun" style="font-size:32px;color:var(--text-muted);"></i>
+                <h6 style="margin-top:12px;font-weight:600;color:var(--text-secondary);">Light Mode</h6>
+                <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">Coming soon</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="theme-option" style="padding:20px;border-radius:var(--radius-xl);border:2px solid var(--border-color);background:var(--bg-card);cursor:pointer;text-align:center;opacity:0.5;">
+                <i class="bi bi-laptop" style="font-size:32px;color:var(--text-muted);"></i>
+                <h6 style="margin-top:12px;font-weight:600;color:var(--text-secondary);">System</h6>
+                <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">Coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Notification Settings ===== -->
+      <div class="tab-pane fade" id="notification-settings">
+        <div class="card" style="background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border-color);border-radius:var(--radius-2xl);padding:32px;height:100%;width:100%;">
+          <h4 style="font-weight:700;margin-bottom:24px;"><i class="bi bi-bell me-2" style="color:var(--accent);"></i>Notification Settings</h4>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Email Notifications</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Receive contract analysis summaries via email</p>
+            </div>
+            <div class="form-check form-switch mb-0">
+              <input class="form-check-input" type="checkbox" checked style="cursor:pointer;width:44px;height:22px;">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Risk Alerts</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Get notified when high-risk contracts are detected</p>
+            </div>
+            <div class="form-check form-switch mb-0">
+              <input class="form-check-input" type="checkbox" checked style="cursor:pointer;width:44px;height:22px;">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Weekly Digest</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Receive a weekly summary of all contract activity</p>
+            </div>
+            <div class="form-check form-switch mb-0">
+              <input class="form-check-input" type="checkbox" style="cursor:pointer;width:44px;height:22px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Account Settings ===== -->
+      <div class="tab-pane fade" id="account-settings">
+        <div class="card" style="background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border-color);border-radius:var(--radius-2xl);padding:32px;height:100%;width:100%;">
+          <h4 style="font-weight:700;margin-bottom:24px;"><i class="bi bi-shield-lock me-2" style="color:var(--accent);"></i>Account Settings</h4>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Account Type</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Your current plan</p>
+            </div>
+            <span class="badge" style="background:var(--accent-light);color:var(--accent);padding:8px 16px;border-radius:var(--radius-full);font-size:13px;">Free Plan</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Language</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Interface language</p>
+            </div>
+            <select style="background:rgba(255,255,255,0.04);border:1px solid var(--border-color);color:var(--text-primary);border-radius:var(--radius-lg);padding:8px 16px;font-size:13px;">
+              <option>English</option>
+              <option>Hindi</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Time Zone</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Your local time zone</p>
+            </div>
+            <select style="background:rgba(255,255,255,0.04);border:1px solid var(--border-color);color:var(--text-primary);border-radius:var(--radius-lg);padding:8px 16px;font-size:13px;">
+              <option>Asia/Kolkata (UTC+5:30)</option>
+              <option>UTC (UTC+0)</option>
+              <option>America/New_York (UTC-5)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Security ===== -->
+      <div class="tab-pane fade" id="security">
+        <div class="card" style="background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border-color);border-radius:var(--radius-2xl);padding:32px;height:100%;width:100%;">
+          <h4 style="font-weight:700;margin-bottom:24px;"><i class="bi bi-key me-2" style="color:var(--accent);"></i>Security</h4>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Change Password</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Update your account password</p>
+            </div>
+            <button class="btn btn-ghost sm"><i class="bi bi-pencil me-1"></i>Change</button>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid var(--border-color);">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Two-Factor Authentication</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Add an extra layer of security</p>
+            </div>
+            <div class="form-check form-switch mb-0">
+              <input class="form-check-input" type="checkbox" style="cursor:pointer;width:44px;height:22px;">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <div>
+              <h6 style="font-weight:600;margin:0;">Active Sessions</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Manage your active login sessions</p>
+            </div>
+            <button class="btn btn-ghost sm"><i class="bi bi-eye me-1"></i>View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Danger Zone ===== -->
+      <div class="tab-pane fade" id="danger-zone">
+        <div class="card" style="background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-2xl);padding:32px;">
+          <h4 style="font-weight:700;margin-bottom:24px;color:var(--danger);"><i class="bi bi-exclamation-triangle me-2"></i>Danger Zone</h4>
+          <div class="d-flex justify-content-between align-items-center py-3" style="border-bottom:1px solid rgba(239,68,68,0.15);">
+            <div>
+              <h6 style="font-weight:600;margin:0;color:var(--text-primary);">Delete All Contracts</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Permanently delete all your uploaded contracts</p>
+            </div>
+            <button class="btn" style="background:var(--danger-bg);color:var(--danger);border:none;padding:8px 20px;border-radius:var(--radius-full);font-size:13px;font-weight:600;"><i class="bi bi-trash3 me-1"></i>Delete All</button>
+          </div>
+          <div class="d-flex justify-content-between align-items-center py-3">
+            <div>
+              <h6 style="font-weight:600;margin:0;color:var(--text-primary);">Delete Account</h6>
+              <p style="font-size:13px;color:var(--text-secondary);margin:2px 0 0;">Permanently delete your account and all data</p>
+            </div>
+            <button class="btn" style="background:var(--danger);color:#fff;border:none;padding:8px 20px;border-radius:var(--radius-full);font-size:13px;font-weight:600;"><i class="bi bi-person-x me-1"></i>Delete Account</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

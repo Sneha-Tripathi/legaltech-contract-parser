@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+
+venv/
+.env
+
+uploads/contracts.csv
+uploads/contracts.xlsx
+uploads/final_report.pdf
+
+.idea/
+.vscode/

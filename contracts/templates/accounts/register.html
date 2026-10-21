@@ -1,0 +1,204 @@
+{% extends "base_public.html" %}
+{% load static %}
+
+{% block title %}Create Account — LegalTech{% endblock %}
+
+{% block preloader %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block extra_head %}
+<style>
+    .auth-page {
+        min-height: calc(100vh - 64px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+        overflow: auto;
+    }
+    .auth-page::before {
+        content: "";
+        position: fixed;
+        width: 550px; height: 550px;
+        background: rgba(124,92,252,0.12);
+        filter: blur(140px);
+        top: -180px; left: -120px;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .auth-page::after {
+        content: "";
+        position: fixed;
+        width: 450px; height: 450px;
+        background: rgba(0,212,255,0.08);
+        filter: blur(140px);
+        right: -120px; bottom: -180px;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .auth-wrapper {
+        width: 100%; max-width: 460px;
+        position: relative; z-index: 1;
+        animation: fadeIn 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .auth-card {
+        background: rgba(21,29,51,0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 24px;
+        padding: 40px 32px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .auth-logo { text-align: center; margin-bottom: 28px; }
+    .auth-logo-icon {
+        width: 52px; height: 52px;
+        background: linear-gradient(135deg, #7C5CFC, #8B6DFF);
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center; justify-content: center;
+        font-size: 24px; color: #fff;
+        margin-bottom: 12px;
+        box-shadow: 0 8px 24px rgba(124,92,252,0.3);
+    }
+    .auth-logo .brand { font-size: 20px; font-weight: 700; color: #fff; }
+    .auth-logo .brand span { color: #7C5CFC; }
+    .auth-logo p { font-size: 14px; color: #A8B0C5; margin: 4px 0 0; }
+    .auth-form-group { margin-bottom: 20px; }
+    .auth-form-group label {
+        font-size: 13px; font-weight: 600;
+        color: #A8B0C5; margin-bottom: 6px; display: block;
+    }
+    .auth-form-group input,
+    .auth-form-group select,
+    .auth-form-group textarea {
+        width: 100%; padding: 12px 16px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px; color: #fff;
+        font-size: 14px; font-family: 'Inter', sans-serif;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .auth-form-group input:focus,
+    .auth-form-group select:focus,
+    .auth-form-group textarea:focus {
+        border-color: #7C5CFC;
+        box-shadow: 0 0 0 3px rgba(124,92,252,0.15);
+    }
+    .auth-form-group input::placeholder { color: rgba(168,176,197,0.5); }
+    .auth-form-group .helptext {
+        font-size: 12px;
+        color: rgba(168,176,197,0.6);
+        margin-top: 4px; display: block;
+    }
+    .auth-form-group .errorlist {
+        list-style: none; padding: 0;
+        margin: 4px 0 0; font-size: 12px; color: #EF4444;
+    }
+    .auth-form-group ul { list-style: none; padding: 0; margin: 4px 0 0; }
+    .auth-form-group ul li { font-size: 12px; color: rgba(168,176,197,0.6); }
+    .auth-btn {
+        width: 100%; padding: 12px;
+        background: linear-gradient(135deg, #7C5CFC, #8B6DFF);
+        color: #fff; border: none; border-radius: 40px;
+        font-size: 15px; font-weight: 600;
+        font-family: 'Inter', sans-serif;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 16px rgba(124,92,252,0.3);
+    }
+    .auth-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(124,92,252,0.4);
+    }
+    .auth-btn:active { transform: translateY(0); }
+    .auth-divider {
+        height: 1px;
+        background: rgba(255,255,255,0.08);
+        margin: 24px 0;
+    }
+    .auth-footer {
+        text-align: center; margin-top: 24px;
+        font-size: 14px; color: #A8B0C5;
+    }
+    .auth-footer a { color: #7C5CFC; text-decoration: none; font-weight: 600; }
+    .auth-footer a:hover { color: #8B6DFF; }
+    .auth-error {
+        background: rgba(239,68,68,0.1);
+        border: 1px solid rgba(239,68,68,0.2);
+        border-radius: 12px;
+        padding: 12px 16px; margin-bottom: 20px;
+        color: #EF4444; font-size: 13px;
+    }
+    .auth-error ul { margin: 0; padding-left: 16px; }
+    .back-home { text-align: center; margin-top: 16px; }
+    .back-home a {
+        color: rgba(168,176,197,0.6);
+        font-size: 13px; text-decoration: none;
+        transition: color 0.2s;
+    }
+    .back-home a:hover { color: #A8B0C5; }
+</style>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-dark fixed-top custom-navbar">
+<div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <i class="bi bi-bank2"></i>
+        <span>Legal<span class="text-purple">Tech</span></span>
+    </a>
+    <a href="{% url 'home' %}" class="btn btn-ghost" style="padding:6px 18px;font-size:13px;border-radius:40px;">
+        <i class="bi bi-arrow-left me-1"></i>Back to Home
+    </a>
+</div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <div class="auth-logo-icon"><i class="bi bi-bank2"></i></div>
+                <div class="brand">Legal<span>Tech</span></div>
+                <p>Create your account to get started.</p>
+            </div>
+
+            {% if form.errors %}
+            <div class="auth-error">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="auth-form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}<div class="helptext">{{ field.help_text }}</div>{% endif %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="auth-btn"><i class="bi bi-person-plus me-1"></i> Create Account</button>
+            </form>
+
+            <div class="auth-divider"></div>
+            <div class="auth-footer">Already have an account? <a href="{% url 'login' %}">Sign in</a></div>
+        </div>
+        <div class="back-home"><a href="{% url 'home' %}"><i class="bi bi-arrow-left me-1"></i>Back to Home</a></div>
+    </div>
+</div>
+{% endblock %}

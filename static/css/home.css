@@ -1,0 +1,1322 @@
+/* =====================================================
+   LEGALTECH HOME CSS
+====================================================== */
+
+/* =====================================================
+   LEGALTECH HOME CSS — Public Pages (overrides global.css)
+====================================================== */
+
+/* Import Inter via global.css -- this file only provides page-specific overrides */
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  overflow-x:hidden;
+}
+
+/* ===========================================
+              NAVBAR
+=========================================== */
+
+.custom-navbar{
+  background:rgba(11,16,32,.95);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:0;
+  height:64px;
+  min-height:64px;
+  transition:.4s;
+  border-bottom:1px solid var(--border-color);
+  display:flex;
+  align-items:center;
+}
+
+.custom-navbar .container{
+  display:flex;
+  align-items:center;
+  height:100%;
+}
+
+.navbar-brand{
+  font-size:20px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--text-primary) !important;
+  text-decoration:none;
+  padding:0;
+  line-height:1;
+}
+
+.text-purple{
+
+color:#7c5cff;
+
+}
+
+.nav-link{
+  color:#A8B0C5 !important;
+  margin:0 6px;
+  font-weight:500;
+  font-size:13px;
+  padding:4px 0 !important;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active{
+  color:#7c5cff !important;
+}
+
+.signup-btn{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:8px 22px;
+  border-radius:40px;
+  font-size:14px;
+  font-weight:600;
+  transition:.35s;
+}
+
+.signup-btn:hover{
+
+background:#6248ff;
+
+transform:translateY(-3px);
+
+color:#fff;
+
+}
+
+/* ===========================================
+            HERO SECTION
+=========================================== */
+
+.hero-section{
+  padding:16px 0 48px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at left top,rgba(124,92,252,0.12),transparent 35%),
+    radial-gradient(circle at right bottom,rgba(139,109,255,0.08),transparent 35%),
+    var(--bg-primary);
+}
+
+.hero-section::before{
+
+content:"";
+
+position:absolute;
+
+width:550px;
+
+height:550px;
+
+background:#7c5cff25;
+
+filter:blur(140px);
+
+top:-180px;
+
+left:-120px;
+
+}
+
+.hero-section::after{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+
+height:450px;
+
+background:#00d4ff20;
+
+filter:blur(140px);
+
+right:-120px;
+
+bottom:-180px;
+
+}
+
+/* ===========================================
+             HERO TEXT
+=========================================== */
+
+.hero-badge{
+
+padding:12px 22px;
+
+border-radius:40px;
+
+font-size:14px;
+
+font-weight:600;
+
+}
+
+.hero-title{
+  font-size:52px;
+  font-weight:800;
+  line-height:1.1;
+  margin-top:12px;
+}
+
+.hero-text{
+  font-size:16px;
+  line-height:1.8;
+  color:var(--text-secondary);
+  margin-top:16px;
+  max-width:540px;
+}
+
+/* ===========================================
+             BUTTONS
+=========================================== */
+
+.hero-btn{
+  padding:12px 28px;
+  border-radius:50px;
+  font-weight:600;
+  font-size:14px;
+  transition:.4s;
+}
+.hero-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 35px rgba(124,92,252,.40);
+}
+
+.btn-primary{
+
+background:#7c5cff;
+
+border:none;
+
+}
+
+.btn-primary:hover{
+
+background:#6248ff;
+
+}
+
+.btn-outline-light{
+
+border:2px solid rgba(255,255,255,.3);
+
+}
+
+.btn-outline-light:hover{
+
+background:#fff;
+
+color:#000;
+
+}
+
+/* ===========================================
+             HERO STATS
+=========================================== */
+
+.hero-stats{
+  display:flex;
+  gap:40px;
+  margin-top:36px;
+}
+
+.hero-stats h3{
+  font-size:36px;
+  font-weight:700;
+  color:var(--accent);
+}
+
+.hero-stats p{
+
+color:#bfc7d8;
+
+margin-top:8px;
+
+}
+
+/* ===========================================
+          DASHBOARD IMAGE
+=========================================== */
+
+.dashboard-preview{
+
+position:relative;
+
+}
+
+.dashboard-img{
+
+width:100%;
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 25px 70px rgba(0,0,0,.45);
+
+transition:.5s;
+
+}
+
+.dashboard-img:hover{
+
+transform:translateY(-8px);
+
+}
+
+/* ===========================================
+          FLOATING CARDS
+=========================================== */
+
+.floating-card{
+
+position:absolute;
+
+background:#161f36;
+
+padding:14px 20px;
+
+border-radius:12px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+font-weight:600;
+
+animation:floatCard 3s ease-in-out infinite;
+
+}
+
+.card-one{
+
+top:30px;
+
+left:-40px;
+
+}
+
+.card-two{
+
+bottom:40px;
+
+right:-40px;
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+.features-section{
+  padding:40px 0;
+  background:var(--bg-secondary);
+}
+
+.section-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.section-text{
+  color:var(--text-secondary);
+  font-size:16px;
+  max-width:650px;
+  margin:auto;
+  line-height:1.7;
+}
+
+.feature-card{
+  display:block;
+  background:var(--bg-card);
+  border:1px solid var(--border-color);
+  border-radius:20px;
+  padding:24px 20px;
+  text-align:center;
+  text-decoration:none;
+  color:var(--text-primary);
+  height:100%;
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.feature-card:hover{
+
+transform:translateY(-12px);
+
+border-color:#7c5cff;
+
+box-shadow:0 25px 60px rgba(124,92,255,.30);
+
+color:#fff;
+
+}
+
+.icon-box{
+
+width:80px;
+
+height:80px;
+
+background:#7c5cff;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:34px;
+
+margin:auto;
+
+margin-bottom:25px;
+
+transition:.4s;
+
+}
+
+.feature-card:hover .icon-box{
+
+transform:rotate(360deg);
+
+}
+
+.feature-card h4{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.feature-card p{
+
+color:#cbd5e1;
+
+line-height:1.8;
+
+}
+
+/* =====================================================
+                WHY CHOOSE US
+====================================================== */
+
+.why-section{
+  padding:40px 0;
+  background:var(--bg-tertiary);
+}
+
+.section-subtitle{
+
+color:#7c5cff;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+.info-card{
+  background:#151d33;
+  padding:28px 20px;
+  border-radius:20px;
+  border:2px solid rgba(255,255,255,.05);
+  transition:.4s;
+  height:100%;
+  text-align:center;
+}
+
+.info-card:hover{
+
+transform:translateY(-10px);
+
+border-color:#7c5cff;
+
+box-shadow:0 20px 50px rgba(124,92,255,.28);
+
+}
+
+.card-icon{
+
+width:80px;
+
+height:80px;
+
+background:#7c5cff;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:34px;
+
+margin:auto;
+
+margin-bottom:25px;
+
+transition:.4s;
+
+}
+
+.info-card:hover .card-icon{
+
+transform:rotate(360deg);
+
+}
+
+.info-card h4{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.info-card p{
+
+color:#cbd5e1;
+
+line-height:1.8;
+
+}
+
+/* =====================================================
+                COUNTER SECTION
+====================================================== */
+
+.counter-section{
+  padding:40px 0;
+  background:var(--bg-secondary);
+}
+
+.counter-box{
+  background:#151d33;
+  padding:28px 20px;
+  border-radius:18px;
+  border:2px solid transparent;
+  transition:.4s;
+}
+
+.counter-box:hover{
+
+transform:translateY(-10px);
+
+border-color:#7c5cff;
+
+box-shadow:0 20px 45px rgba(124,92,255,.30);
+
+}
+
+.counter{
+
+font-size:52px;
+
+font-weight:800;
+
+color:#7c5cff;
+
+margin-bottom:10px;
+
+}
+
+.counter-box p{
+
+font-size:18px;
+
+color:#d1d5db;
+
+}
+
+/* =====================================================
+                WORKFLOW
+====================================================== */
+
+.workflow-section{
+  padding:40px 0;
+  background:var(--bg-tertiary);
+}
+
+.step-card{
+  background:#151d33;
+  padding:28px 20px;
+  border-radius:18px;
+  text-align:center;
+  border:2px solid rgba(255,255,255,.05);
+  transition:.4s;
+  height:100%;
+}
+
+.step-card:hover{
+
+transform:translateY(-12px);
+
+border-color:#7c5cff;
+
+box-shadow:0 20px 45px rgba(124,92,255,.30);
+
+}
+
+.step-number{
+
+width:70px;
+
+height:70px;
+
+background:#7c5cff;
+
+color:#fff;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+font-size:30px;
+
+font-weight:700;
+
+margin:auto;
+
+margin-bottom:25px;
+
+}
+
+.step-card h4{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-bottom:12px;
+
+}
+
+.step-card p{
+
+color:#cbd5e1;
+
+line-height:1.8;
+
+}
+
+/* =====================================================
+                SERVICES
+====================================================== */
+
+.services-section{
+  padding:40px 0;
+  background:var(--bg-primary);
+}
+
+.services-section h2{
+
+font-size:46px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.services-section p{
+
+color:#cbd5e1;
+
+line-height:1.9;
+
+margin-bottom:25px;
+
+}
+
+.service-list{
+
+list-style:none;
+
+padding:0;
+
+}
+
+.service-list li{
+
+padding:12px 0;
+
+font-size:18px;
+
+}
+
+.service-list i{
+
+color:#7c5cff;
+
+margin-right:10px;
+
+}
+
+.services-section img{
+
+border-radius:25px;
+
+transition:.5s;
+
+box-shadow:0 20px 60px rgba(0,0,0,.40);
+
+}
+
+.services-section img:hover{
+
+transform:scale(1.03);
+
+box-shadow:0 30px 70px rgba(124,92,255,.35);
+
+}
+/* =====================================================
+                TESTIMONIALS
+====================================================== */
+
+.testimonials-section{
+  padding:40px 0;
+  background:var(--bg-secondary);
+}
+
+.testimonial-card{
+  background:#151d33;
+  border:2px solid rgba(255,255,255,.05);
+  border-radius:20px;
+  padding:24px;
+  height:100%;
+  transition:.4s;
+}
+
+.testimonial-card:hover{
+
+transform:translateY(-12px);
+
+border-color:#7c5cff;
+
+box-shadow:0 20px 50px rgba(124,92,255,.30);
+
+}
+
+.stars{
+
+font-size:24px;
+
+color:#ffc107;
+
+margin-bottom:20px;
+
+}
+
+.testimonial-card p{
+
+color:#d1d5db;
+
+line-height:1.9;
+
+}
+
+.testimonial-card h5{
+
+margin-top:18px;
+
+font-weight:700;
+
+}
+
+.testimonial-card small{
+
+color:#7c5cff;
+
+}
+
+/* =====================================================
+                     FAQ
+====================================================== */
+
+.faq-section{
+  padding:40px 0;
+  background:var(--bg-tertiary);
+}
+
+.accordion-item{
+
+background:#151d33;
+
+border:1px solid rgba(255,255,255,.08);
+
+margin-bottom:20px;
+
+border-radius:15px !important;
+
+overflow:hidden;
+
+}
+
+.accordion-button{
+
+background:#151d33;
+
+color:#fff;
+
+font-weight:600;
+
+box-shadow:none;
+
+}
+
+.accordion-button:not(.collapsed){
+
+background:#7c5cff;
+
+color:#fff;
+
+}
+
+.accordion-body{
+
+background:#101827;
+
+color:#d1d5db;
+
+line-height:1.8;
+
+}
+
+/* =====================================================
+                 CTA SECTION
+====================================================== */
+
+.cta-section{
+  padding:48px 0;
+  background:var(--accent-gradient);
+  text-align:center;
+}
+
+.cta-section h2{
+
+font-size:52px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.cta-section p{
+
+max-width:700px;
+
+margin:auto;
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#f1f5f9;
+
+}
+
+.cta-section .btn{
+
+margin-top:30px;
+
+padding:15px 38px;
+
+border-radius:50px;
+
+font-weight:600;
+
+transition:.4s;
+
+}
+
+.cta-section .btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+/* =====================================================
+                   FOOTER
+====================================================== */
+
+.footer{
+  background:#050b17;
+  padding:48px 0 24px;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.footer-logo{
+
+font-size:32px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.footer-text{
+
+color:#cbd5e1;
+
+line-height:1.9;
+
+}
+
+.footer h5{
+
+margin-bottom:22px;
+
+font-weight:700;
+
+}
+
+.footer-links{
+
+list-style:none;
+
+padding:0;
+
+}
+
+.footer-links li{
+
+margin-bottom:14px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:#cbd5e1;
+
+transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+color:#7c5cff;
+
+padding-left:6px;
+
+}
+
+.social-icons{
+
+margin-top:25px;
+
+}
+
+.social-icons a{
+
+width:45px;
+
+height:45px;
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:#151d33;
+
+color:#fff;
+
+margin-right:10px;
+
+transition:.35s;
+
+font-size:18px;
+
+}
+
+.social-icons a:hover{
+
+background:#7c5cff;
+
+transform:translateY(-5px);
+
+}
+
+.footer-divider{
+  border-color:rgba(255,255,255,.08);
+  margin:24px 0 16px;
+}
+
+.footer-bottom{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+color:#cbd5e1;
+
+}
+
+/* =====================================================
+               SCROLL BUTTON
+====================================================== */
+
+.scroll-top{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:#7c5cff;
+
+color:#fff;
+
+font-size:22px;
+
+cursor:pointer;
+
+display:none;
+
+z-index:9999;
+
+transition:.35s;
+
+}
+
+.scroll-top:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 20px 40px rgba(124,92,255,.40);
+
+}
+
+/* =====================================================
+                 PRELOADER
+====================================================== */
+
+#preloader{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:#0b1120;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+}
+
+.loader{
+
+display:flex;
+
+gap:10px;
+
+}
+
+.loader span{
+
+width:16px;
+
+height:16px;
+
+background:#7c5cff;
+
+border-radius:50%;
+
+animation:loader .7s infinite alternate;
+
+}
+
+.loader span:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+.loader span:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+@keyframes loader{
+
+100%{
+
+transform:translateY(-12px);
+
+opacity:.5;
+
+}
+
+}
+
+/* =====================================================
+                SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#08101f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#7c5cff;
+
+border-radius:20px;
+
+}
+
+/* =====================================================
+                RESPONSIVE
+====================================================== */
+
+@media(max-width:992px){
+  .hero-title{ font-size:36px; }
+  .hero-stats{ flex-direction:column; gap:16px; }
+  .dashboard-preview{ margin-top:40px; }
+  .card-one, .card-two{ display:none; }
+  .section-title{ font-size:28px; }
+  .cta-section h2{ font-size:28px; }
+  .services-section h2{ font-size:28px; }
+  .footer-bottom{ text-align:center; justify-content:center; gap:8px; }
+}
+
+@media(max-width:768px){
+.hero-section{
+  padding:20px 0 40px;
+  text-align:center;
+}
+.hero-buttons .btn{
+  display:block;
+  width:100%;
+  margin-bottom:15px;
+}
+.hero-title{ font-size:34px; }
+.counter{ font-size:34px; }
+.footer{ text-align:center; }
+.social-icons{
+  justify-content:center;
+  display:flex;
+}
+}
+
+/* =====================================================
+               FADE ANIMATION
+====================================================== */
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.hero-section,
+.features-section,
+.why-section,
+.counter-section,
+.workflow-section,
+.services-section,
+.testimonials-section,
+.faq-section,
+.cta-section{
+
+animation:fadeUp .8s ease;
+
+}
+/* Dashboard Fix */
+
+/* Legacy - kept for reference but no longer needed */
+
+.dashboard-card{
+    margin-bottom:25px;
+}
+
+.card{
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+/* Dashboard */
+
+.container{
+    max-width:1200px;
+}
+
+.card{
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card-body h1{
+    font-size:52px;
+    font-weight:700;
+    color:#2563eb;
+}
+/* ===== Page Layout Fix ===== */
+
+.main-content{
+    padding-top:64px;
+    min-height:calc(100vh - 64px);
+}
+
+.dashboard-page,
+.container{
+    position:relative;
+    z-index:1;
+}
+
+/* =====================================================
+           CONTRACTS PAGE — HEADER STYLES
+====================================================== */
+
+.contracts-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:24px;
+    overflow:visible;
+}
+
+.contracts-title{
+    font-size:32px;
+    font-weight:700;
+    color:#ffffff;
+    margin:0 0 4px 0;
+    padding:0;
+    line-height:1.3;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.contracts-title i{
+    font-size:32px;
+    color:#7c5cff;
+}
+
+.contracts-subtitle{
+    font-size:15px;
+    color:#6c757d;
+    margin:0;
+    padding:0;
+    line-height:1.5;
+}
+
+/* =====================================================
+           CONTRACTS PAGE — CARD HOVER OVERRIDE
+====================================================== */
+/* Prevent global .card:hover from moving the contracts table card */
+.card.border-secondary.shadow {
+    transition: none;
+}
+.card.border-secondary.shadow:hover {
+    transform: none;
+}
